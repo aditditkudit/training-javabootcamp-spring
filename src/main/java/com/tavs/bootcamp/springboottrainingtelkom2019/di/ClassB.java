@@ -1,5 +1,8 @@
 package com.tavs.bootcamp.springboottrainingtelkom2019.di;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassB {
     private ClassC c;
     private ClassD d;
