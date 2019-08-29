@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Peler</title>
 </head>
 <body>
     <h1>Jancok Jancok</h1>
+    <p th:text="${message}">Welcome to our grocery store!</p>
+    Sekarang tanggal <p th:text="${tanggal}"> Kamis 29 Agustus</p>
     <input type="text" name="nama" id="nama">
     <br>
     <input type="text" name="pacar" id="pacar">
+    <button type="button">Kirim</button>
 </body>
 </html>
