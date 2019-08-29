@@ -1,8 +1,11 @@
 package com.tavs.bootcamp.springboottrainingtelkom2019.controller;
 
+import com.tavs.bootcamp.springboottrainingtelkom2019.model.Mahasiswa;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
@@ -13,14 +16,28 @@ public class HaloController {
     //Menggunakan protokol Get
     @GetMapping("/halo")
     public String halo(Model model,
-                       @RequestParam(required = false) String nama, //Menggunakan Request parameter
-                       @RequestParam(required = false) Integer umur){
+                       @ModelAttribute Mahasiswa mahasiswa){
         model.addAttribute("tanggal", new Date());
         model.addAttribute("message", "Kudit gansss");
-        model.addAttribute("nama", nama); // Memasukkan request parameter pada variable name di html
-        model.addAttribute("umur", umur); // Memasukkan request parameter pada variable umur di html
-        System.out.println("Nama dari request: " + nama + ", umur dari request: "+ umur);
+        model.addAttribute("mahasiswa", mahasiswa);
         return "/belajar-html";
+    }
+
+//    Menggunakan method post
+    @PostMapping("/haloPost")
+    public String requestPost(
+            @RequestParam(required = false) String nama,
+            @RequestParam(required = false) Integer umur){
+        System.out.println("Nama dari request post: " + nama +", Umur dari request post: " + umur);
+        return "redirect:/halo";
+    }
+//    Menggunakan method Get
+    @GetMapping("/haloPost")
+    public String requestGet(
+            @RequestParam(required = false) String nama,
+            @RequestParam(required = false) Integer umur){
+        System.out.println("Nama dari request get: " + nama +", Umur dari request get: " + umur);
+        return "redirect:/halo";
     }
 
 }
