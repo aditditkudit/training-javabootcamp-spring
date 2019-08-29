@@ -8,9 +8,9 @@
     <h1>Jancok Jancok</h1>
     <p th:text="${message}">Welcome to our grocery store!</p>
     Sekarang tanggal <p th:text="${tanggal}"> Kamis 29 Agustus</p>
-    <input type="text" name="nama" id="nama">
+    <input type="text" name="nama" id="nama" th:value="${nama}">
     <br>
-    <input type="text" name="pacar" id="pacar">
+    <input type="text" name="umur" id="umur" th:value="${umur}">
     <button type="button">Kirim</button>
 </body>
 </html>
