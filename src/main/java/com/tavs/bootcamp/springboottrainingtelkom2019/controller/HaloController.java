@@ -8,10 +8,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class HaloController {
+    private List<Mahasiswa> daftarMahasiswa = new ArrayList<>();
+
+    public HaloController(){
+        this.daftarMahasiswa.add(new Mahasiswa("Hayayaya", 123123));
+        this.daftarMahasiswa.add(new Mahasiswa("H123", 123123));
+        this.daftarMahasiswa.add(new Mahasiswa("asdsad", 123123));
+        this.daftarMahasiswa.add(new Mahasiswa("asdasd", 123123));
+    }
+
 
     //Menggunakan protokol Get
     @GetMapping("/halo")
@@ -20,6 +31,7 @@ public class HaloController {
         model.addAttribute("tanggal", new Date());
         model.addAttribute("message", "Kudit gansss");
         model.addAttribute("mahasiswa", mahasiswa);
+        model.addAttribute("listMahasiswa", daftarMahasiswa);
         return "/belajar-html";
     }
 
@@ -39,5 +51,4 @@ public class HaloController {
         System.out.println("Nama dari request get: " + nama +", Umur dari request get: " + umur);
         return "redirect:/halo";
     }
-
 }

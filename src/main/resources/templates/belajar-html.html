@@ -23,5 +23,23 @@
     <p th:text="${message}">Welcome to our grocery store!</p>
     Sekarang tanggal <p th:text="${tanggal}"> Kamis 29 Agustus</p>
 
+    <h3>Daftar Mahasiswa</h3>
+    <table>
+        <thead>
+        <tr>
+            <td>No</td>
+            <td>Nama</td>
+            <td>Umur</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student, iterStat: ${listMahasiswa}">
+            <td th:text="${iterStat.count}">1</td>
+            <td th:text="${student.nama}">asdasdasd</td>
+            <td th:text="${student.umur}">231</td>
+
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
