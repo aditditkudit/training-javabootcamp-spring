@@ -5,21 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 
 @Data
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "mahasiswa")
 
 public class Mahasiswa {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String nama;
     private Integer umur;
 
-    public Mahasiswa(String nama, Integer umur) {
-        this.nama = nama;
-        this.umur = umur;
-    }
-
-    public Mahasiswa() {
-    }
 
 }
