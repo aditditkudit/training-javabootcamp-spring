@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:with="http://www.thymeleaf.org/extras/with"
+      layout:decorate="~{layout}"
+      with:title="'Add Kelas'">
+
+<th:block layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <h1 class="mt-3">Form Add Kelas </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div class="mt-3">
+                    <form th:object="${kelas}" th:method="post" th:action="@{/kelas/addKelasP}">
+                        <div class="form-group">
+                            <label for="kodekelas">Kode Kelas</label>
+                            <input type="text"  class="form-control" id="kodeKelas" aria-describedby="kodeHelp" placeholder="Enter Name" th:field="*{kodekelas}">
+                            <small id="kodeHelp" class="form-text text-muted">Masukan Kode Kelas</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="namakelas">Nama Kelas</label>
+                            <input type="text" name="namakelas" class="form-control" id="namakelas" placeholder="Umur" th:field="*{namakelas}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</th:block>
+</html>

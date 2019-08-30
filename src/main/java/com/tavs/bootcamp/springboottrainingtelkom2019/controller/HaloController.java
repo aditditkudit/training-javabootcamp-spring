@@ -40,11 +40,4 @@ public class HaloController {
         return "redirect:/halo";
     }
 //    Menggunakan method Get
-    @GetMapping("/haloPost")
-    public String requestGet(
-            @RequestParam(required = false) String nama,
-            @RequestParam(required = false) Integer umur){
-        System.out.println("Nama dari request get: " + nama +", Umur dari request get: " + umur);
-        return "redirect:/halo";
-    }
 }

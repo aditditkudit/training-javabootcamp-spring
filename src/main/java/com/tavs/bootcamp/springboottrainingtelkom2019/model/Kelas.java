@@ -1,10 +1,8 @@
 package com.tavs.bootcamp.springboottrainingtelkom2019.model;
 
-
 import lombok.*;
 
 import javax.persistence.*;
-
 
 @Data
 @AllArgsConstructor
@@ -12,14 +10,14 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-@Table(name = "mahasiswa")
+@Table(name = "kelas")
 
-public class Mahasiswa {
+public class Kelas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nama;
-    private Integer umur;
+    private String kodekelas;
+    private String namakelas;
 
 
 }

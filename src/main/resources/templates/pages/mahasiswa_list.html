@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:with="http://www.thymeleaf.org/extras/with"
+      layout:decorate="~{layout}"
+      with:title="'List Mahasiswa'">
+
+<th:block layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <h1 class="mt-3">Hello, world!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <a th:href="@{/mahasiswa/addMahasiswa}"><button type="button" class="btn btn-success">Add Mahasiswa</button></a>
+            </div>
+        </div>
+        <table class="table mt-3">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Umur</th>
+                <th scope="col">Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student, iterStat: ${listMahasiswa}">
+                <th th:text="${iterStat.count}" scope="row">1</th>
+                <td th:text="${student.nama}">Adhitya</td>
+                <td th:text="${student.umur}">17</td>
+                <td>
+                    <a th:href="@{/mahasiswa/editMahasiswa/{id}(id=${student.id})}" class="badge badge-success">Edit</a>
+                    <a th:href="@{/mahasiswa/deleteMahasiswa/{id}(id=${student.id})}" class="badge badge-danger">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</th:block>
+</html>
